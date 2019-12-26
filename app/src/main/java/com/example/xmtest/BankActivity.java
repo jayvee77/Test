@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -144,27 +145,47 @@ public class BankActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.save_withdraw:
                 String bt_text = save_withdraw.getText().toString();
-                double money = Double.parseDouble(inputMoney.getText().toString());
+                String inputText = inputMoney.getText().toString();
                 String anotherAccount = bankAccount.getText().toString();
                 switch (bt_text) {
                     case "存入金额":
-                        saveMoney(money);
-                        inputMoney.setText("");
+                        if (TextUtils.isEmpty(inputText)) {
+                            Toast.makeText(BankActivity.this, "请输入您要存入的金额", Toast.LENGTH_SHORT).show();
+                        }else {
+                            double money = Double.parseDouble(inputText);
+                            saveMoney(money);
+                            inputMoney.setText("");
+                        }
                         break;
                     case "取出金额":
-                        withdrawMoney(money);
-                        inputMoney.setText("");
+                        if (TextUtils.isEmpty(inputText)) {
+                            Toast.makeText(BankActivity.this, "请输入您要取出的金额", Toast.LENGTH_SHORT).show();
+                        }else {
+                            double money = Double.parseDouble(inputText);
+                            withdrawMoney(money);
+                            inputMoney.setText("");
+                        }
                         break;
                     case "转账":
-                        transferAccounts(anotherAccount, money);
-                        inputMoney.setText("");
-                        bankAccount.setText("");
+                        if (TextUtils.isEmpty(anotherAccount)) {
+                            Toast.makeText(BankActivity.this, "请输入对方的银行卡卡号", Toast.LENGTH_SHORT).show();
+                        }else if (TextUtils.isEmpty(inputText)) {
+                            Toast.makeText(BankActivity.this, "请输入您要转出的金额", Toast.LENGTH_SHORT).show();
+                        }else {
+                            double money = Double.parseDouble(inputText);
+                            transferAccounts(anotherAccount, money);
+                            inputMoney.setText("");
+                            bankAccount.setText("");
+                        }
                         break;
                 }
+                break;
             case R.id.back:
                 bankOperation.setVisibility(View.GONE);
                 operation.setVisibility(View.VISIBLE);
                 hideInputKeyboard(v);
+                inputMoney.setText("");
+                bankAccount.setText("");
                 break;
         }
     }
