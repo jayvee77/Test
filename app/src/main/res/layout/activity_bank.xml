@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/bank_title"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="中国银行"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:textColor="#141414"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/operation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/save_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="存钱"
+                android:textSize="22sp"
+                android:layout_alignParentTop="true"/>
+
+            <Button
+                android:id="@+id/withdraw_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取钱"
+                android:textSize="22sp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentLeft="true"/>
+
+            <Button
+                android:id="@+id/transfer_accounts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="转账"
+                android:textSize="22sp"
+                android:layout_alignParentBottom="true"/>
+
+            <Button
+                android:id="@+id/check_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查询余额"
+                android:textSize="22sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"/>
+
+            <Button
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退出"
+                android:textSize="22sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/bank_operation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/blance_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="您当前账户的余额为: "
+                    android:textColor="#262626"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/bank_balance"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textSize="24sp"
+                    android:textColor="#262626"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/bank_account"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:hint="请输入银行卡号"
+                android:inputType="number"
+                android:maxLength="6"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/money"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:hint="请输入您要存入的金额"
+                android:inputType="numberDecimal"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/register"
+                    android:text="返回"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/save_withdraw"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/register"
+                    android:text="存入金额"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
